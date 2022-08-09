@@ -6,6 +6,6 @@ setup_data = {
     "descp" : "Backend code and APIs for stock_sim clients",
     "dependencies" : [
         {"name" : "psycopg2" , "version" : "2.9.3"},
-        {"name " : "yahoo_fin" , "version" : "0.8.9.1"}
+        {"name" : "yahoo_fin" , "version" : "0.8.9.1"}
     ]
 }
