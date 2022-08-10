@@ -4,9 +4,8 @@
     "author" : "Ganesh Dagadi",
     "author_email" : "ganeshdagadi3@gmail.com",
     "descp" : "Backend code and APIs for stock_sim clients",
-    "pckg_manager" : "pip3",
     "dependencies" : [
-        {"name" : "psycopg2" , "version" : "2.9.3"},
-        {"name" : "yahoo_fin" , "version" : "0.8.9.1"}
+        {"name" : "psycopg2" , "version" : "2.9.3" , "pckg_manager" : "pip3"},
+        {"name" : "yahoo_fin" , "version" : "0.8.9.1" , "pckg_manager" : "pip3"}
     ]
 }
