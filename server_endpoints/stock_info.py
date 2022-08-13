@@ -7,7 +7,7 @@ def search_stocks(substr):  #Takes name of company and return its symbol with na
    try:
       substr = substr.upper()
       substr = '%%'+ substr + '%%'
-      return db.queryGet("SELECT * FROM symbol_name WHERE name like '%s' "% (substr))
+      return db.queryGet("SELECT * FROM symbol_name WHERE stock_name like '%s' "% (substr))
    except Exception as e:
       raise e
 

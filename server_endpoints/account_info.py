@@ -40,7 +40,7 @@ def get_all_holdings(acc_id = 3):
         for i in holdings:
             symbol = i['ticker']
             name = db.queryGet(f"SELECT name FROM symbol_name WHERE symbol = '{symbol}'")
-            i['name'] = name[0]['name']
+            i['name'] = name[0]['stock_name']
         return holdings
     except Exception as e:
         raise e
