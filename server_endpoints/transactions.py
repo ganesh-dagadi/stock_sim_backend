@@ -3,7 +3,7 @@ import stock_sim_backend.middleware.validator as vd
 import stock_sim_backend.server_endpoints.stock_info as si
 
 
-def add_amt_acc(amount , acc_id = 3): #Only one account in V1
+def add_amt_acc(amount , acc_id = 1): #Only one account in V1
     try:
         # Check if account exists Done in V2
         db.querySet('''
@@ -17,7 +17,7 @@ def add_amt_acc(amount , acc_id = 3): #Only one account in V1
     except Exception as e:
         raise e
 
-def buy_stock(ticker , qty , acc_id = 3):
+def buy_stock(ticker , qty , acc_id = 1):
     try:
         #Check if account exists in V2
         vd.ticker_exists(ticker)
@@ -84,7 +84,7 @@ def buy_stock(ticker , qty , acc_id = 3):
     except Exception as e:
         raise e
 
-def sell_stock(ticker , qty , acc_id = 3):
+def sell_stock(ticker , qty , acc_id = 1):
     try:
         vd.ticker_exists(ticker)
         holdings = db.queryGet(f'SELECT * FROM acc_holding_transac INNER JOIN holdings ON acc_holding_transac.holding_id = holdings.holding_id WHERE acc_holding_transac.acc_id = {acc_id} AND acc_holding_transac.holding_id IS NOT NULL ')
