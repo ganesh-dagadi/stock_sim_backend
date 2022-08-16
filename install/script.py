@@ -70,23 +70,25 @@ try:
     cur.close()
     conn.close()
 
-    df = pd.read_excel('./install/stocks.xlsx')  #current working dir is root
-    df2 = df.iloc[3: , 0:2]
     
+    df = pd.read_csv('./install/Equity.csv')
+    df2 = df[['Security Id' , 'Issuer Name']].copy()
+    df2 = df2.rename(columns = {'Security Id' : 'stock_name' , 'Issuer Name' : 'symbol'})
     conn = pg.connect(
         dbname="stocksim", password=database_password, user="postgres", host="localhost"
     )
     cur = conn.cursor()
     for i in df2.index:
-        name = df2["Unnamed: 1"][i]
+        name = df2["stock_name"][i]
         if(type(name) != str):
             continue
         name = name.upper()
-        cur.execute("INSERT INTO symbol_name(symbol , stock_name) VALUES (%(symbol)s , %(name)s)", {'symbol':df2['Yahoo Stock Tickers'][i] , 'name' : name})
+        symbol = df2['symbol'][i] + '.BO'
+        cur.execute("INSERT INTO symbol_name(symbol , stock_name) VALUES (%(symbol)s , %(name)s)", {'symbol':symbol , 'name' : name})
         conn.commit()
     cur.close()
     conn.close()
-    os.remove('./install/stocks.xlsx')
+    os.remove('./install/Equity.csv')
     exit(code=0)
 except Exception as e:
     print(e)

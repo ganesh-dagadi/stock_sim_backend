@@ -13,7 +13,7 @@
     "install" : {
         "run" : "python ./install/script.py",
         "args" : [
-            {"prompt" : "Password of postgres user" , "position" : 1}
+            {"prompt" : "Password of postgres user"}
         ]
     }
 }
