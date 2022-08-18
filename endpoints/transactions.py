@@ -1,6 +1,6 @@
-import stock_sim_backend.database.main as db
-import stock_sim_backend.middleware.validator as vd
-import stock_sim_backend.server_endpoints.stock_info as si
+from ..database import main as db
+from ..middleware import validator as vd
+from ..endpoints import stock_info as si
 
 
 def add_amt_acc(amount , acc_id = 1): #Only one account in V1

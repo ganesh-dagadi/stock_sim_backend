@@ -1,5 +1,4 @@
-import stock_sim_backend.database.main as db
-
+from ..database import main as db
 def remove_holdings_duplicated(holdings):
     output = []
     for i in holdings:
